@@ -12,6 +12,8 @@ import (
 
 // Handler 负责处理博客模块的请求.
 type Handler struct {
+	// 必须内嵌 apiv1.UnimplementedMiniBlogServer 类型
+	// 为了提供默认实现，确保未实现的 gRPC 方法返回“未实现”错误，同时满足接口要求，简化服务端开发和向后兼容性。
 	apiv1.UnimplementedMiniBlogServer
 }
 

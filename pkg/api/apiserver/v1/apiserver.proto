@@ -7,11 +7,12 @@
 // MiniBlog API 定义，包含健康检查、用户管理和文章管理的 RPC 接口
 syntax = "proto3"; // 告诉编译器此文件使用什么版本的语法
 
-package v1;
+package v1; //用于指定生成的 .pb.go 文件所属的包名
 
 import "google/protobuf/empty.proto";       // 导入空消息
 import "apiserver/v1/healthz.proto";        // 健康检查消息定义
 
+// option用于对 .proto 文件进行配置 其中 go_package 是必需的配置项，其值必须设置为包的导入路径
 option go_package = "github.com/onexstack/miniblog/pkg/api/apiserver/v1;v1";
 
 // MiniBlog 定义了一个 MiniBlog RPC 服务

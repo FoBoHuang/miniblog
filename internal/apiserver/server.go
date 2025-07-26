@@ -67,6 +67,8 @@ func (cfg *Config) NewUnionServer() (*UnionServer, error) {
 	// 创建 GRPC Server 实例
 	grpcsrv := grpc.NewServer()
 	apiv1.RegisterMiniBlogServer(grpcsrv, handler.NewHandler())
+	// 向 gRPC 服务器注册反射服务，从而使得 gRPC 服务支持服务反射功能。
+	// 它允许客户端动态查询 gRPC 服务器上的服务信息，而无需事先拥有 Protobuf 文件。
 	reflection.Register(grpcsrv)
 
 	return &UnionServer{cfg: cfg, srv: grpcsrv, lis: lis}, nil
