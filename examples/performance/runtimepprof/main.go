@@ -31,7 +31,22 @@ func main() {
 		defer pprof.StopCPUProfile()
 	}
 
-	// ... rest of the program ...
+	// 模拟一些CPU密集型的计算工作
+	result := 0
+	for i := 0; i < 100000000; i++ {
+		result += i * i
+	}
+
+	// 模拟一些内存分配
+	data := make([][]int, 1000)
+	for i := range data {
+		data[i] = make([]int, 1000)
+		for j := range data[i] {
+			data[i][j] = i * j
+		}
+	}
+
+	log.Printf("计算完成，结果: %d, 数据长度: %d", result, len(data))
 
 	if *memprofile != "" {
 		f, err := os.Create(*memprofile)
