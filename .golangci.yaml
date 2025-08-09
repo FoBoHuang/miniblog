@@ -5,9 +5,6 @@
 # This file contains all available configuration options
 # with their default values.
 
-# Configuration version for golangci-lint v2.x
-version: 2
-
 # options for analysis running
 run:
   # default concurrency is a available CPU number
@@ -47,7 +44,7 @@ run:
 # output configuration options
 output:
   # colored-line-number|line-number|json|tab|checkstyle|code-climate, default is "colored-line-number"
-  format: colored-line-number
+  formats: colored-line-number
 
   # print lines of code with issue, default is true
   print-issued-lines: true
@@ -139,7 +136,11 @@ linters-settings:
   funlen:
     lines: 150
     statements: 50
-
+  gci:
+    # put imports beginning with prefix after 3rd-party packages;
+    # only support one prefix
+    # if not set, use goimports.local-prefixes
+    # prefix: github.com/onexstack/miniblog
   gocognit:
     # minimal code complexity to report, 30 by default (but we recommend 10-20)
     min-complexity: 30
@@ -701,6 +702,7 @@ linters:
   disable-all: false
   disable:
     - nolintlint
+    - exportloopref
     - errchkjson
     - nlreturn
     - mnd
@@ -714,6 +716,7 @@ linters:
     - iface
     - tagliatelle
     - err113
+    - gci
     - dupl
       #- rowserrcheck
       #- sqlclosecheck
@@ -855,7 +858,7 @@ severity:
   # issues. Severity rules have the same filtering capability as exclude rules except you
   # are allowed to specify one matcher per severity rule.
   # Only affects out formats that support setting severity information.
-  # rules:
-  #   - linters:
-  #       - dupl
-  #     severity: info
+  rules:
+    - linters:
+      - dupl
+      severity: info
