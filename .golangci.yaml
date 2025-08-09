@@ -139,11 +139,7 @@ linters-settings:
   funlen:
     lines: 150
     statements: 50
-  gci:
-    # put imports beginning with prefix after 3rd-party packages;
-    # only support one prefix
-    # if not set, use goimports.local-prefixes
-    # prefix: github.com/onexstack/miniblog
+
   gocognit:
     # minimal code complexity to report, 30 by default (but we recommend 10-20)
     min-complexity: 30
