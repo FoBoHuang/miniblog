@@ -858,5 +858,5 @@ severity:
   # Only affects out formats that support setting severity information.
   rules:
     - linters:
-      - dupl
+        - dupl
       severity: info
