@@ -44,8 +44,7 @@ run:
 # output configuration options
 output:
   # colored-line-number|line-number|json|tab|checkstyle|code-climate, default is "colored-line-number"
-  formats:
-    - colored-line-number
+  formats: colored-line-number
 
   # print lines of code with issue, default is true
   print-issued-lines: true
@@ -453,12 +452,10 @@ linters-settings:
         alias: genericstore
       - pkg: github.com/onexstack/onex/pkg/validation
         alias: genericvalidation
-      # using `jwt` alias for `github.com/appleboy/gin-jwt/v2` package
-      - pkg: github.com/appleboy/gin-jwt/v2
-        alias: jwt
-      # using `metav1` alias for `github.com/marmotedu/component-base/pkg/meta/v1` package
-      - pkg: github.com/marmotedu/component-base/pkg/meta/v1
-        alias: metav1
+    # using `jwt` alias for `github.com/appleboy/gin-jwt/v2` package
+    jwt: github.com/appleboy/gin-jwt/v2
+    # using `metav1` alias for `github.com/marmotedu/component-base/pkg/meta/v1` package
+    metav1: github.com/marmotedu/component-base/pkg/meta/v1
 
   ireturn:
     # ireturn allows using `allow` and `reject` settings at the same time.
@@ -804,7 +801,7 @@ issues:
   # Enables exclude of directories:
   # - vendor$, third_party$, testdata$, examples$, Godeps$, builtin$
   # Default: true
-  exclude-dirs-use-default: true
+  exclude-dirs-use-defaul: true
 
   # The default value is false. If set to true exclude and exclude-rules
   # regular expressions become case sensitive.
@@ -863,5 +860,5 @@ severity:
   # Only affects out formats that support setting severity information.
   rules:
     - linters:
-        - dupl
+      - dupl
       severity: info
