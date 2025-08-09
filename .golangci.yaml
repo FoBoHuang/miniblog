@@ -5,6 +5,9 @@
 # This file contains all available configuration options
 # with their default values.
 
+# Configuration version for golangci-lint v2.x
+version: 2
+
 # options for analysis running
 run:
   # default concurrency is a available CPU number
@@ -43,8 +46,10 @@ run:
 
 # output configuration options
 output:
-  # colored-line-number|line-number|json|tab|checkstyle|code-climate, default is "colored-line-number"
-  formats: colored-line-number
+  # In v2, formats is a map where keys are format names
+  formats:
+    - name: colored-line-number
+      path: stdout
 
   # print lines of code with issue, default is true
   print-issued-lines: true
