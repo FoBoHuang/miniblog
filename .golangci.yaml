@@ -715,7 +715,6 @@ linters:
     - iface
     - tagliatelle
     - err113
-    - gci
     - dupl
       #- rowserrcheck
       #- sqlclosecheck
