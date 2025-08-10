@@ -8,7 +8,7 @@
 # options for analysis running
 run:
   # default concurrency is a available CPU number
-  concurrency: 4
+  concurrency: 1
 
   # Select the Go version to target. The default is '1.13'.
   go: "1.23"
